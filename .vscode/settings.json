@@ -1,0 +1,13 @@
+{
+    "editor.formatOnSave": true,
+    // Disables the default language server so the standalone Pyright extension can take over
+    "python.languageServer": "None",
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false
+}
