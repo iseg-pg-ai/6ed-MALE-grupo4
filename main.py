@@ -1,6 +1,7 @@
 # =========================================================
 # 1. IMPORTAÇÃO DAS BIBLIOTECAS
 # =========================================================
+# ruff: noqa: E402
 from sklearnex import patch_sklearn
 
 patch_sklearn()  # small patch to make sklearn go faster on intel processors
@@ -96,7 +97,7 @@ for i, col in enumerate(continuous_cols):
     axes[i].set_title(f"Boxplot de {col}")
 
 plt.tight_layout()
-plt.savefig("outliers_boxplots.png")
+plt.savefig("Graphs/outliers_boxplots.png")
 plt.close()
 
 # =========================================================
@@ -117,7 +118,7 @@ plt.title("Distribuição da Variável Target: Satisfação")
 plt.xlabel("Nível de Satisfação")
 plt.ylabel("Contagem")
 plt.tight_layout()
-plt.savefig("satisfaction_distribution.png")
+plt.savefig("Graphs/satisfaction_distribution.png")
 plt.close()
 
 
@@ -261,7 +262,7 @@ sns.barplot(
     data=resultado_df, x="Modelo", y="F1", hue="Modelo", palette="viridis", legend=False
 )
 plt.title("Comparação dos Modelos (F1-Score)")
-plt.savefig("F1-Score.png")
+plt.savefig("Graphs/F1-Score.png")
 plt.close()
 # =========================================================
 # 12. ESCOLHA DO MELHOR MODELO E MATRIZ DE CONFUSÃO
@@ -287,7 +288,7 @@ sns.heatmap(cm, annot=True, fmt="d", cmap="Blues")
 plt.title(f"Matriz de Confusão - {melhor_modelo_nome}")
 plt.xlabel("Previsto")
 plt.ylabel("Real")
-plt.savefig("matriz-confusao.png")
+plt.savefig("Graphs/matriz-confusao.png")
 plt.close()
 
 # =========================================================
@@ -316,7 +317,7 @@ if melhor_modelo_nome != "SVM":
         legend=False,
     )
     plt.title(f"Importância das Features ({melhor_modelo_nome})")
-    plt.savefig("importancia-features-melhor-modelo.png")
+    plt.savefig("Graphs/importancia-features-melhor-modelo.png")
     plt.close()
 else:
     print(
@@ -352,7 +353,7 @@ print(pca.explained_variance_ratio_)
 plt.figure(figsize=(10, 12))
 sns.heatmap(loadings, cmap="coolwarm", center=0)
 plt.title("Heatmap dos Loadings da PCA")
-plt.savefig("heatmap-loadings-pca.png")
+plt.savefig("Graphs/heatmap-loadings-pca.png")
 plt.close()
 
 plt.figure(figsize=(10, 8))
@@ -368,7 +369,7 @@ for i in loadings.index:
 plt.xlabel("PC1")
 plt.ylabel("PC2")
 plt.title("Loadings das Variáveis (PC1 vs PC2)")
-plt.savefig("loading-variaveis-pc1-vs-pc2.png")
+plt.savefig("Graphs/loading-variaveis-pc1-vs-pc2.png")
 plt.close()
 
 # =========================================================
@@ -384,7 +385,7 @@ df_pca["cluster"] = clusters
 plt.figure(figsize=(10, 6))
 sns.scatterplot(data=df_pca, x="PC1", y="PC2", hue="cluster", palette="Set2")
 plt.title("Clusters dos Passageiros (PCA + KMeans)")
-plt.savefig("clusters-passageiros-pca-kmeans.png")
+plt.savefig("Graphs/clusters-passageiros-pca-kmeans.png")
 plt.close()
 
 # =========================================================
@@ -404,7 +405,7 @@ print(cluster_profile_num.T)
 plt.figure(figsize=(12, 8))
 sns.heatmap(cluster_profile_num, cmap="coolwarm")
 plt.title("Perfil Médio dos Clusters (Variáveis Numéricas)")
-plt.savefig("perfil-medio-clusters.png")
+plt.savefig("Graphs/perfil-medio-clusters.png")
 plt.close()
 
 # =========================================================
